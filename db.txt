@@ -1,0 +1,34 @@
+create user 'tidb'@'%' identified by 'tidb'  //创建用户
+grant all privileges on *.* to tidb@'%' identified by 'tidb';//权限
+
+tidb启动命令：
+启动PD 
+./bin/pd-server --data-dir=pd --log-file=pd.log &
+启动TiKV 
+./bin/tikv-server --pd="127.0.0.1:2379" --data-dir=tikv --log-file=tikv.log &
+启动TiDB 
+./bin/tidb-server --store=tikv --path="127.0.0.1:2379" --log-file=tidb.log &
+
+hxdev099 刘晓波
+hxdev100 李力军
+
+
+#jdk
+JAVA_HOME=/usr/local/java/jdk
+PATH=$JAVA_HOME/bin:$PATH
+CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+JRE_HOME=${JAVA_HOME}/jre
+
+
+每一个客户端链接是否开辟一个线程？
+
+数据库连接池？
+redo log  存储层  innodb存储引擎  持久性
+
+undo log  原子性
+bin log	服务层
+ACID 四个属性
+
+回表  索引覆盖 索下推
+
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
